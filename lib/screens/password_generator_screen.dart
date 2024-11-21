@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/services.dart'; // 必须导入这个包
+import 'package:u2stk_web/router.dart';
+import 'package:provider/provider.dart';
 
 class PasswordGeneratorScreen extends StatefulWidget {
   const PasswordGeneratorScreen({super.key});
@@ -68,6 +70,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
 
   @override
   Widget build(BuildContext context) {
+    context.read<TitleProvider>().updateTitle('随机密码生成');
     return Scaffold(
       backgroundColor: const Color(0xfffafafc),
       appBar: AppBar(
