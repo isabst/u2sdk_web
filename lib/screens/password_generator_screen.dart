@@ -68,9 +68,15 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
     });
   }
 
+  void _onPageLoaded() {
+    context.read<TitleProvider>().updateTitle('随机密码生成');
+  }
+
   @override
   Widget build(BuildContext context) {
-    context.read<TitleProvider>().updateTitle('随机密码生成');
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _onPageLoaded();
+    });
     return Scaffold(
       backgroundColor: const Color(0xfffafafc),
       appBar: AppBar(
